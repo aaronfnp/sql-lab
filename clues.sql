@@ -3,6 +3,7 @@
 -- so find the least populated country in Southern Europe, and we'll start looking for her there.
  
 SELECT * FROM country WHERE region = 'Southern Europe' ORDER BY population ASC LIMIT 1;
+-- VAT
 
 
 -- Clue #2: Now that we're here, we have insight that Carmen was seen attending language classes in
@@ -10,6 +11,7 @@ SELECT * FROM country WHERE region = 'Southern Europe' ORDER BY population ASC L
 -- spoken in this country, so we can call in a translator to work with you.
 
 SELECT * FROM countrylanguage JOIN country ON countrylanguage.countrycode = country.code WHERE countrycode = 'VAT';
+-- ITALIAN
 
 
 -- Clue #3: We have new news on the classes Carmen attended – our gumshoes tell us she's moved on
@@ -17,6 +19,7 @@ SELECT * FROM countrylanguage JOIN country ON countrylanguage.countrycode = coun
 -- nearby country speaks nothing but that language.
 
 SELECT * FROM countrylanguage WHERE language = 'Italian' AND percentage = '100';
+-- SMR
 
 
 -- Clue #4: We're booking the first flight out – maybe we've actually got a chance to catch her this time.
@@ -33,6 +36,7 @@ SELECT * FROM city WHERE countrycode = 'SMR' AND name != 'San Marino';
 -- headed to, but doesn't end the same. Find out the city, and do another search for what country it's in. Hurry!
 
 SELECT * FROM city WHERE name LIKE 'Serr%' ORDER BY name ASC;
+-- Serra
 
 
 -- Clue #6: We're close! Our South American agent says she just got a taxi at the airport, and is headed towards
